@@ -218,22 +218,20 @@
 }
 
 
-        /* --- Animated Logo Styles --- */
-.logo-container {
+        .logo-container {
+    position: absolute; /* এটা দিলে লোগোটাকে স্বাধীনভাবে যেকোনো জায়গায় বসানো যাবে */
+    left: 20px;         /* বাম পাশ থেকে ২০ পিক্সেল দূরে (তোর লাল ঘরের জায়গা) */
+    top: 30px;          /* উপর থেকে ৩০ পিক্সেল নিচে */
     display: flex;
-    justify-content: center; /* লোগোটিকে মাঝখানে নেবে */
-    align-items: center;
-    margin-bottom: 30px; /* তোর নামের ওপর একটু ফাঁকা জায়গা রাখবে */
-    margin-top: -50px; /* ফাঁকা জায়গায় ঠিকমতো সেট করার জন্য নেগেটিভ মার্জিন (ঐচ্ছিক) */
-}
-
+    z-index: 10;
+        }
 .animated-logo {
     display: flex;
     gap: 5px; /* অক্ষরগুলোর মাঝখানের দূরত্ব */
 }
 
 .logo-text {
-    font-size: 60px; /* লোগোর সাইজ */
+    font-size: 25px; /* লোগোর সাইজ */
     font-weight: 900;
     color: #fff; /* শুরুর রঙ সাদা */
     font-family: 'Poppins', sans-serif; /* তোর ওয়েবসাইটের ফন্ট */
