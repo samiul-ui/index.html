@@ -210,6 +210,70 @@
             .menu a { font-size: 15px; }
             .actions { flex-direction: column; }
         }
+/* ফুটার মেনুর মাউস পয়েন্টার এনিমেশন */
+.footer-col ul li a:hover {
+    color: #ff3e3e !important; /* মাউস নিলে লাল রঙ হবে */
+    transition: 0.3s ease; /* রঙটা খুব স্মুথলি বদলাবে */
+    text-shadow: 0 0 8px rgba(255, 62, 62, 0.4); /* হালকা লাল আভা (জোস লাগবে দেখতে) */
+}
+
+
+        /* --- Animated Logo Styles --- */
+.logo-container {
+    display: flex;
+    justify-content: center; /* লোগোটিকে মাঝখানে নেবে */
+    align-items: center;
+    margin-bottom: 30px; /* তোর নামের ওপর একটু ফাঁকা জায়গা রাখবে */
+    margin-top: -50px; /* ফাঁকা জায়গায় ঠিকমতো সেট করার জন্য নেগেটিভ মার্জিন (ঐচ্ছিক) */
+}
+
+.animated-logo {
+    display: flex;
+    gap: 5px; /* অক্ষরগুলোর মাঝখানের দূরত্ব */
+}
+
+.logo-text {
+    font-size: 60px; /* লোগোর সাইজ */
+    font-weight: 900;
+    color: #fff; /* শুরুর রঙ সাদা */
+    font-family: 'Poppins', sans-serif; /* তোর ওয়েবসাইটের ফন্ট */
+    text-transform: uppercase; /* বড় হাতের অক্ষর */
+    
+    /* এনিমেশন প্রপার্টি */
+    animation: constantWiggle 1s infinite alternate, colorShift 3s infinite;
+}
+
+/* --- Animation Keyframes --- */
+
+/* ১. অবিরাম সামান্য নড়াচড়া (Wiggle) এনিমেশন - ১ সেকেন্ডের জন্যও স্থির থাকবে না */
+@keyframes constantWiggle {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    50% { transform: translateY(0) rotate(-2deg); }
+    75% { transform: translateY(5px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ২. অবিরাম রঙ পরিবর্তনের (Color Shift) এনিমেশন */
+@keyframes colorShift {
+    0% { color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    33% { color: #ff3e3e; text-shadow: 0 0 20px rgba(255, 62, 62, 0.8); } /* তোর লাল রঙ */
+    66% { color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    100% { color: #ff3e3e; text-shadow: 0 0 20px rgba(255, 62, 62, 0.8); }
+}
+
+/* মোবাইলের জন্য রেসপনসিভ */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 40px; /* মোবাইলে লোগোর সাইজ ছোট হবে */
+    }
+    .logo-container {
+        margin-top: -30px;
+    }
+            }
+        
+
+        
     </style>
 </head>
 <body>
@@ -220,9 +284,22 @@
             <li><a onclick="toggleSection('about')">About</a></li>
             <li><a onclick="toggleSection('skills')">Skills</a></li>
             <li><a onclick="toggleSection('service')">Service</a></li>
-            <li><a onclick="toggleSection('contact')">Contact <i class="fab fa-youtube youtube-icon"></i></a></li>
+            <li><a onclick="toggleSection('contact')">Contact</a></li>
         </ul>
     </nav>
+
+
+    <div class="logo-container">
+    <div class="animated-logo">
+        <span class="logo-text">S</span>
+        <span class="logo-text">A</span>
+        <span class="logo-text">M</span>
+        <span class="logo-text">I</span>
+        <span class="logo-text">U</span>
+        <span class="logo-text">L</span>
+    </div>
+    </div>
+    
 
     <div class="main-wrapper">
         <div id="home-view">
@@ -315,19 +392,19 @@ I am not just a service provider—I am a continuous learner and a problem solve
         
         <div class="footer-col">
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">About us</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Projects</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Applications</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Vacancies</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">About us</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Projects</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Applications</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Vacancies</a></li>
             </ul>
         </div>
 
         <div class="footer-col">
             <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">News</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Media</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Procurements</a></li>
-                <li style="margin-bottom: 15px;"><a href="#" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 500;">Contacts</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">News</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Media</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Procurements</a></li>
+                <li style="margin-bottom: 20px;"><a href="#" style="color: #888; text-decoration: none; font-size: 16px; font-weight: 500;">Contacts</a></li>
             </ul>
         </div>
 
