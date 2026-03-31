@@ -352,16 +352,85 @@
 .flame:nth-child(4) { animation-delay: 1.1s; }
 
 /* মোবাইলের জন্য রেসপনসিভ */
+
+   /* --- Walking Figure with Fire Styles (Updated Fixes) --- */
+
+/* ১. এনিমেশন কন্টেইনার (লাল বক্সের পজিশন - বাম পাশে) */
+.animation-container {
+    position: absolute;  /* এটা দিলে লোগো ধাক্কা খাবে না */
+    left: 20px;          /* বাম পাশ থেকে ২০ পিক্সেল দূরে (তোর লাল ঘরের জায়গা) */
+    top: 30px;           /* উপর থেকে ৩০ পিক্সেল নিচে */
+    display: flex;
+    justify-content: flex-start; /* বাম পাশে সেট করার জন্য */
+    align-items: center;
+    z-index: 5;          /* অন্য টেক্সটের ওপর দেখানোর জন্য */
+}
+
+/* ২. মানুষের স্টাইল (Walking Icon) - ফর্সা করার জন্য */
+.shadow-walker {
+    font-size: 50px;     /* সাইজ ছোট করা হয়েছে লাল বক্সে ফিট করার জন্য */
+    color: #e0e0e0;      /* কালো শ্যাডো কেটে একদম ফর্সা বা উজ্জ্বল গ্রে রঙ দেওয়া হয়েছে */
+    position: relative;
+    
+    /* হাঁটার এনিমেশন (১ সেকেন্ডের জন্যও স্থির থাকবে না) */
+    animation: walkCycle 1.5s infinite ease-in-out;
+}
+
+/* ৩. আগুনের শিখার স্টাইল (আগের মতোই থাকবে) */
+.fire-effect {
+    position: absolute;
+    bottom: -8px;        /* পায়ের নিচে বসাবে */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+}
+
+/* ৪. প্রতিটি আগুনের শিখার স্টাইল (আগের মতোই) */
+.flame {
+    width: 7px;
+    height: 22px;
+    background: linear-gradient(to top, #ff3e3e, #ffeb3b); /* লাল থেকে হলুদ */
+    border-radius: 50% 50% 20% 20%;
+    opacity: 0;
+    
+    /* আগুনের এনিমেশন */
+    animation: ignite 1.2s infinite ease-out;
+}
+
+/* --- Animation Keyframes (আগের মতোই, শুধু অবিরাম চলতে থাকবে) --- */
+
+@keyframes walkCycle {
+    0% { transform: translate(-5px, 0px) rotate(0deg); }
+    25% { transform: translate(0px, -3px) rotate(2deg); }
+    50% { transform: translate(5px, 0px) rotate(0deg); }
+    75% { transform: translate(0px, -3px) rotate(-2deg); }
+    100% { transform: translate(-5px, 0px) rotate(0deg); }
+}
+
+@keyframes ignite {
+    0% { transform: scale(0) translateY(0); opacity: 0; background: #ffeb3b; }
+    30% { opacity: 1; background: #ff3e3e; }
+    100% { transform: scale(1.5) translateY(-25px); opacity: 0; background: rgba(255, 62, 62, 0); }
+}
+
+/* ডাইনামিক শিখার জন্য আলাদা টাইমিং */
+.flame:nth-child(1) { animation-delay: 0.2s; }
+.flame:nth-child(2) { animation-delay: 0.5s; }
+.flame:nth-child(3) { animation-delay: 0.8s; }
+.flame:nth-child(4) { animation-delay: 1.1s; }
+
+/* মোবাইলের জন্য রেসপনসিভ */
 @media (max-width: 768px) {
+    .animation-container {
+        left: 10px;      /* মোবাইলে বাম থেকে ১০ পিক্সেল */
+        top: 20px;
+    }
     .shadow-walker {
-        font-size: 40px; /* মোবাইলে সাইজ ছোট হবে */
+        font-size: 35px; /* মোবাইলে মানুষের সাইজ ছোট */
     }
-    .flame {
-        width: 6px;
-        height: 20px;
-    }
-        }
-         
+}
+        
         
 
         
