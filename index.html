@@ -7,58 +7,57 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* CSS resets and Global Styles */
+        
 
-        .social-box {
-    posi/* --- Sidebar Social Box Styles --- */
+/* --- Sidebar Social Icons (সবুজ ঘরের জন্য) --- */
 .social-box {
-    position: fixed; /* স্ক্রিনের এক জায়গায় আটকে থাকবে */
-    right: 20px; /* ডান পাশ থেকে দূরত্ব */
-    top: 50%; /* মাঝ বরাবর সেট করার জন্য */
-    transform: translateY(-50%);
+    position: fixed; /* স্ক্রিনের সাথে আটকে থাকবে */
+    right: 25px; /* ডান পাশ থেকে দূরত্ব */
+    top: 50%; /* উপর থেকে মাঝখানে নেওয়ার জন্য */
+    transform: translateY(-50%); /* নিখুঁতভাবে মাঝখানে সেট করবে */
     display: flex;
-    flex-direction: column; /* আইকনগুলোকে ওপর-নিচ করবে */
-    gap: 15px;
-    z-index: 1000;
+    flex-direction: column; /* আইকনগুলোকে ওপর-নিচ (Vertical) করবে */
+    gap: 15px; /* আইকনগুলোর মাঝখানের ফাঁকা জায়গা */
+    z-index: 9999; /* যেন এটি সবসময় সবকিছুর উপরে থাকে */
 }
 
 .social-box a {
-    color: #fff;
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 62, 62, 0.2); /* হালকা লাল আভা */
-    border: 1px solid #ff3e3e; /* বর্ডার লাল */
+    text-decoration: none;
+    color: #fff; /* আইকনের রঙ সাদা */
+    font-size: 22px; /* আইকনের সাইজ */
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 62, 62, 0.1); /* হালকা লাল ব্যাকগ্রাউন্ড */
+    border: 1px solid rgba(255, 62, 62, 0.4); /* লাল বর্ডার */
     border-radius: 50%; /* গোল করার জন্য */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    transition: 0.3s ease;
+    transition: all 0.3s ease; /* হোভার ইফেক্ট স্মুথ করার জন্য */
+    
+    /* এনিমেশন প্রপার্টি */
     opacity: 0; /* শুরুতে অদৃশ্য থাকবে */
-    animation: slideIn 0.8s ease forwards; /* এনিমেশন চালু */
+    transform: translateX(50px); /* শুরুতে ডান দিকে সরে থাকবে */
+    animation: slideInRight 0.6s ease forwards; /* এনিমেশন চালু */
 }
 
-/* Hover Effect */
+/* হোভার করলে কেমন দেখাবে */
 .social-box a:hover {
-    background: #ff3e3e;
-    transform: scale(1.2); /* হোভার করলে বড় হবে */
-    box-shadow: 0 0 10px #ff3e3e;
+    background: #ff3e3e; /* হোভারে ব্যাকগ্রাউন্ড পুরো লাল হবে */
+    color: #000; /* হোভারে আইকন কালো হবে */
+    transform: scale(1.1); /* একটু বড় হবে */
+    box-shadow: 0 0 15px rgba(255, 62, 62, 0.6); /* লাল আভা বা গ্লো */
 }
 
-/* --- Animation Property --- */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(50px); /* ডান দিক থেকে আসবে */
-    }
+/* --- এনিমেশন কী-ফ্রেম (ডান থেকে বামে আসার জন্য) --- */
+@keyframes slideInRight {
     to {
         opacity: 1;
-        transform: translateX(0); /* নিজের জায়গায় স্থির হবে */
+        transform: translateX(0); /* নিজের সঠিক জায়গায় ফিরে আসবে */
     }
 }
 
-/* প্রতিটি আইকন একের পর এক আসার জন্য Delay */
+/* আইকনগুলো একটার পর একটা ভেসে ওঠার জন্য Delay */
 .social-box a:nth-child(1) { animation-delay: 0.1s; }
 .social-box a:nth-child(2) { animation-delay: 0.2s; }
 .social-box a:nth-child(3) { animation-delay: 0.3s; }
@@ -66,6 +65,19 @@
 .social-box a:nth-child(5) { animation-delay: 0.5s; }
 .social-box a:nth-child(6) { animation-delay: 0.6s; }
 .social-box a:nth-child(7) { animation-delay: 0.7s; }
+
+/* মোবাইলের জন্য ছোট অ্যাডজাস্টমেন্ট */
+@media (max-width: 768px) {
+    .social-box {
+        right: 15px;
+    }
+    .social-box a {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+        
 
         
         * {
