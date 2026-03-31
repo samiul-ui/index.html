@@ -269,6 +269,99 @@
         margin-top: -30px;
     }
             }
+
+
+        /* --- Walking Shadow with Fire Styles --- */
+
+/* ১. এনিমেশন কন্টেইনার (মাঝখানে পজিশন করার জন্য) */
+.animation-container {
+    display: flex;
+    justify-content: center; /* মাঝ বরাবর নেবে */
+    align-items: center;
+    margin-top: -30px; /* তোর নামের ওপর একটু ফাঁকা জায়গা রাখবে */
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 5;
+}
+
+/* ২. ছায়াময় মানুষের স্টাইল (Walking Icon) */
+.shadow-walker {
+    font-size: 60px; /* মানুষের সাইজ */
+    color: rgba(0, 0, 0, 0.7); /* ছায়াময় রঙ (ডার্ক গ্রে/কালো) */
+    position: relative;
+    
+    /* হাঁটার এনিমেশন (সামান্য ডানে-বামে নড়াচড়া) */
+    animation: walkCycle 1.5s infinite ease-in-out;
+}
+
+/* ৩. আগুনের শিখার সাধারণ স্টাইল */
+.fire-effect {
+    position: absolute;
+    bottom: -10px; /* পায়ের নিচে বসাবে */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3px;
+}
+
+/* ৪. প্রতিটি আগুনের শিখার স্টাইল */
+.flame {
+    width: 8px;
+    height: 25px;
+    background: linear-gradient(to top, #ff3e3e, #ffeb3b); /* তোর লাল রঙ থেকে হলুদ রঙে */
+    border-radius: 50% 50% 20% 20%; /* আগুনের শিখার মতো শেপ */
+    opacity: 0;
+    
+    /* আগুনের এনিমেশন (ওপর-নিচে এবং কালার চেঞ্জ) */
+    animation: ignite 1.2s infinite ease-out;
+}
+
+/* --- Animation Keyframes (১ সেকেন্ডের জন্যও স্থির থাকবে না) --- */
+
+/* হাঁটার এনিমেশন (সামান্য ডানে-বামে এবং ওপর-নিচে নড়াচড়া) */
+@keyframes walkCycle {
+    0% { transform: translate(-10px, 0px) rotate(0deg); }
+    25% { transform: translate(0px, -5px) rotate(2deg); }
+    50% { transform: translate(10px, 0px) rotate(0deg); }
+    75% { transform: translate(0px, -5px) rotate(-2deg); }
+    100% { transform: translate(-10px, 0px) rotate(0deg); }
+}
+
+/* আগুনের শিখার এনিমেশন */
+@keyframes ignite {
+    0% {
+        transform: scale(0) translateY(0);
+        opacity: 0;
+        background: #ffeb3b; /* শুরুতে হলুদ */
+    }
+    30% {
+        opacity: 1;
+        background: #ff3e3e; /* মাঝখানে লাল */
+    }
+    100% {
+        transform: scale(1.5) translateY(-30px); /* ওপরের দিকে উঠবে */
+        opacity: 0;
+        background: rgba(255, 62, 62, 0); /* শেষে মিলিয়ে যাবে */
+    }
+}
+
+/* প্রতিটি আগুনের শিখা আলাদা সময়ে এনিমেশন হবে (ডাইনামিক লুকের জন্য) */
+.flame:nth-child(1) { animation-delay: 0.2s; }
+.flame:nth-child(2) { animation-delay: 0.5s; }
+.flame:nth-child(3) { animation-delay: 0.8s; }
+.flame:nth-child(4) { animation-delay: 1.1s; }
+
+/* মোবাইলের জন্য রেসপনসিভ */
+@media (max-width: 768px) {
+    .shadow-walker {
+        font-size: 40px; /* মোবাইলে সাইজ ছোট হবে */
+    }
+    .flame {
+        width: 6px;
+        height: 20px;
+    }
+        }
+         
         
 
         
@@ -297,6 +390,20 @@
         <span class="logo-text">L</span>
     </div>
     </div>
+
+    <div class="animation-container">
+    <div class="shadow-walker">
+        <i class="fas fa-walking"></i>
+        
+        <div class="fire-effect">
+            <span class="flame"></span>
+            <span class="flame"></span>
+            <span class="flame"></span>
+            <span class="flame"></span>
+        </div>
+    </div>
+    </div>
+    
     
 
     <div class="main-wrapper">
