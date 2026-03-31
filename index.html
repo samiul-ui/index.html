@@ -8,6 +8,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* CSS resets and Global Styles */
+
+        .social-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.social-sidebar a {
+    color: #fff;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 62, 62, 0.2);
+    border: 1px solid #ff3e3e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+    animation: slideIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.social-sidebar a:hover {
+    background: #ff3e3e;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #ff3e3e;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+        
         * {
             margin: 0;
             padding: 0;
@@ -175,17 +215,7 @@
                 <h1>MD SAMIUL ISLAM</h1>
                 <p class="tagline">"Dedicated to delivering high-quality digital solutions with precision and speed. I prioritize client satisfaction by blending modern technology with reliable expertise. My goal is to transform complex challenges into seamless results while maintaining professional integrity. Let’s grow your business together through innovation and commitment."</p>
 
-                <div class="social-box">
-                    <a href="https://www.facebook.com/samiulislamarif2005" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/Samiul_Islam_2" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.tiktok.com/@md_samiul_islam_arif" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://wa.me/8801944375089" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.linkedin.com/in/md-samiul-islam-b2b-lead-generation/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.threads.net/@_samiul_islam_1" target="_blank"><i class="fab fa-threads"></i></a>
-                    <a href="https://t.me/samiul0978" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-
-                    
-                </div>
+                
 
                 <div class="actions">
                     <button class="btn btn-hire" onclick="toggleSection('service')">Hire Me</button>
@@ -316,5 +346,18 @@ I am not just a service provider—I am a continuous learner and a problem solve
             }
         }
     </script>
+
+<div class="social-box">
+                    <a href="https://www.facebook.com/samiulislamarif2005" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/Samiul_Islam_2" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.tiktok.com/@md_samiul_islam_arif" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/8801944375089" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/in/md-samiul-islam-b2b-lead-generation/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.threads.net/@_samiul_islam_1" target="_blank"><i class="fab fa-threads"></i></a>
+                    <a href="https://t.me/samiul0978" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+
+                    
+</div>
+    
 </body>
 </html>
