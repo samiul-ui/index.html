@@ -270,18 +270,24 @@
     }
             }
 
-
-        /* --- Walking Shadow with Fire Styles --- */
-
-/* ১. এনিমেশন কন্টেইনার (মাঝখানে পজিশন করার জন্য) */
 .animation-container {
     display: flex;
-    justify-content: center; /* মাঝ বরাবর নেবে */
+    justify-content: center; /* এটি এনিমেশনকে স্ক্রিনের মাঝখানে আনবে */
     align-items: center;
-    margin-top: -30px; /* তোর নামের ওপর একটু ফাঁকা জায়গা রাখবে */
-    margin-bottom: 20px;
+    position: relative;      /* absolute কেটে relative করবি */
+    margin-top: 50px;       /* নামের ওপর কতটুকু ফাঁকা থাকবে (এটি বাড়িয়ে কমিয়ে দেখ) */
+    margin-bottom: 10px;    /* নামের সাথে দূরত্ব ঠিক করার জন্য */
+    width: 100%;             /* পুরো জায়গা জুড়ে থাকবে যেন মাঝখানে বসতে পারে */
+}
+
+.shadow-walker {
+    font-size: 60px;         /* মানুষের সাইজ (তোর পছন্দমতো করিস) */
+    color: #ffffff;          /* মানুষ দেখা না গেলে সাদা বা হালকা গ্রে দিস */
     position: relative;
-    z-index: 5;
+}
+        
+        /* --- Walking Shadow with Fire Styles --- */
+
 }
 
 /* ২. ছায়াময় মানুষের স্টাইল (Walking Icon) */
