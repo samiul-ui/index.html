@@ -11,20 +11,6 @@
 
 
 
-<script>
-function showContent(id)showContent('contacts'); //  {
-    // সব কন্টেন্ট লুকাও
-    var contents = ['about', 'projects', 'applications', 'vacancies', 'news', 'media', 'procurements', 'contacts'];
-    for (var i = 0; i < contents.length; i++) {
-        var div = document.getElementById(contents[i] + 'Content');
-        if (div) div.style.display = 'none';
-    }
-    // যেটাতে ক্লিক করা হয়েছে সেটা দেখাও
-    var selected = document.getElementById(id + 'Content');
-    if (selected) selected.style.display = 'block';
-}
-</script>
-
 
 
 
@@ -554,42 +540,7 @@ footer {
 
 
 
-<div style="background: #1e1e1e; padding: 20px; margin-top: 30px; border-radius: 10px; color: white;">
-    <div id="aboutContent" style="display: none;">
-        <h3>About Us</h3>
-        <p>আমরা একটি ওয়েব ডিজাইন টিম। ৫ বছর ধরে কাজ করছি।</p>
-    </div>
-    <div id="projectsContent" style="display: none;">
-        <h3>Projects</h3>
-        <p>ই-কমার্স, পোর্টফোলিও, অ্যাডমিন প্যানেল ইত্যাদি প্রকল্প করেছি।</p>
-    </div>
-    <div id="applicationsContent" style="display: none;">
-        <h3>Applications</h3>
-        <p>মোবাইল ও ওয়েব অ্যাপ্লিকেশন তৈরি করি।</p>
-    </div>
-    <div id="vacanciesContent" style="display: none;">
-        <h3>Vacancies</h3>
-        <p>জুনিয়র ডেভেলপার নিয়োগ দেওয়া হবে। রিজিউম পাঠান।</p>
-    </div>
-    <div id="newsContent" style="display: none;">
-        <h3>News</h3>
-        <p>নতুন ফিচার আসছে খুব শীঘ্রই।</p>
-    </div>
-    <div id="mediaContent" style="display: none;">
-        <h3>Media</h3>
-        <p>ফেসবুক, ইউটিউব লিংক এখানে থাকবে।</p>
-    </div>
-    <div id="procurementsContent" style="display: none;">
-        <h3>Procurements</h3>
-        <p>সরবরাহের জন্য যোগাযোগ করুন।</p>
-    </div>
-    <div id="contactsContent" style="display: none;">
-        <h3>Contact Me</h3>
-        <p>📍 লোকেশন: বগুড়া, রাজশাহী, বাংলাদেশ</p>
-        <p>📞 ফোন: 01944375089</p>
-        <p>📧 ইমেইল: mdsamiulislam50457@gmail.com</p>
-    </div>
-</div>
+
 
 
 
@@ -889,6 +840,44 @@ footer {
 
 
 
+<div style="background: #1e1e1e; padding: 20px; margin-top: 30px; border-radius: 10px; color: white;">
+    <div id="aboutContent" style="display: none;">
+        <h3>About Us</h3>
+        <p>আমরা একটি ওয়েব ডিজাইন টিম। ৫ বছর ধরে কাজ করছি।</p>
+    </div>
+    <div id="projectsContent" style="display: none;">
+        <h3>Projects</h3>
+        <p>ই-কমার্স, পোর্টফোলিও, অ্যাডমিন প্যানেল ইত্যাদি প্রকল্প করেছি।</p>
+    </div>
+    <div id="applicationsContent" style="display: none;">
+        <h3>Applications</h3>
+        <p>মোবাইল ও ওয়েব অ্যাপ্লিকেশন তৈরি করি।</p>
+    </div>
+    <div id="vacanciesContent" style="display: none;">
+        <h3>Vacancies</h3>
+        <p>জুনিয়র ডেভেলপার নিয়োগ দেওয়া হবে। রিজিউম পাঠান।</p>
+    </div>
+    <div id="newsContent" style="display: none;">
+        <h3>News</h3>
+        <p>নতুন ফিচার আসছে খুব শীঘ্রই।</p>
+    </div>
+    <div id="mediaContent" style="display: none;">
+        <h3>Media</h3>
+        <p>ফেসবুক, ইউটিউব লিংক এখানে থাকবে।</p>
+    </div>
+    <div id="procurementsContent" style="display: none;">
+        <h3>Procurements</h3>
+        <p>সরবরাহের জন্য যোগাযোগ করুন।</p>
+    </div>
+    <div id="contactsContent" style="display: none;">
+        <h3>Contact Me</h3>
+        <p>📍 লোকেশন: বগুড়া, রাজশাহী, বাংলাদেশ</p>
+        <p>📞 ফোন: 01944375089</p>
+        <p>📧 ইমেইল: mdsamiulislam50457@gmail.com</p>
+    </div>
+</div>
+
+    
     
 
     
@@ -949,8 +938,27 @@ function createSpark() {
 // প্রতি 800ms এ একটি নতুন স্পার্ক তৈরি হবে
 setInterval(createSpark, 800);
     </script>
+    
 
 
+<script>
+function showContent(id)  {
+    // সব কন্টেন্ট লুকাও
+    var contents = ['about', 'projects', 'applications', 'vacancies', 'news', 'media', 'procurements', 'contacts'];
+    for (var i = 0; i < contents.length; i++) {
+        var div = document.getElementById(contents[i] + 'Content');
+        if (div) div.style.display = 'none';
+    }
+    // যেটাতে ক্লিক করা হয়েছে সেটা দেখাও
+    var selected = document.getElementById(id + 'Content');
+    if (selected) selected.style.display = 'block';
+}
+</script>
+
+    
+
+
+    
     
 </body>
 </html>
